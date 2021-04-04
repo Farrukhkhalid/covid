@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const url = "https://covid19.mathdro.id/api";
+const urlall = 'https://disease.sh/v3/covid-19/all' ;
 
 export const fetchData = async () => {
   try {
@@ -19,14 +20,15 @@ export const fetchData = async () => {
 
 export const fetchDailyData = async () => {
   try {
-    const { data } = await axios.get(`${url}/daily`);
+    const { data } = await axios.get(urlall);
 
-    // const modifiedData = {
-    //   confirmed: data.confirmed.value,
-    //   recovered: data.recovered.value,
-    //   deaths: data.deaths.value,
-    //   lastUpdate: data.lastUpdate
-    // };
-    return data;
+    const modifiedData = {
+      todayCases: data.todayCases,
+      todayDeaths: data.todayDeaths,
+      todayRecovered: data.todayRecovered,
+      critical: data.critical,
+      updated: data.updated
+    };
+    return modifiedData;
   } catch (error) {}
 };

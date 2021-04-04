@@ -118,12 +118,12 @@ function Cards(props) {
             <Typography variant="h5">
             <Countup
                 start={0}
-                end={props.data.recovered}
-                duration={1}
+                end={props.daily.todayCases}
+                duration={2}
                 separator=","
               />
             </Typography>
-            <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
+            <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
             <Typography variant="body2">
               number of active cases in covid
             </Typography>
@@ -131,16 +131,16 @@ function Cards(props) {
        </Grid>
        <Grid item component={Card} style={StyleDailyRecov}>
           <CardContent className='Card' >
-            <Typography>INFECTED</Typography>
+            <Typography>Deaths</Typography>
             <Typography variant="h5">
             <Countup
                 start={0}
-                end={props.data.recovered}
-                duration={1}
+                end={props.daily.todayDeaths}
+                duration={2}
                 separator=","
               />
             </Typography>
-            <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
+            <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
             <Typography variant="body2">
               number of active cases in covid
             </Typography>
@@ -152,11 +152,11 @@ function Cards(props) {
             <Typography variant="h5">
                 <Countup
                 start={0}
-                end={props.data.deaths}
+                end={props.daily.critical}
                 duration={2}
                 separator=","
               /></Typography>
-            <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
+            <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
             <Typography variant="body2">
               number of active cases in covid
             </Typography>
@@ -167,11 +167,11 @@ function Cards(props) {
             <Typography color="textSecoundary">DEATHS</Typography>
             <Typography variant="h5"><Countup
                 start={0}
-                end={props.data.confirmed}
+                end={props.daily.todayRecovered}
                 duration={1}
                 separator=","
               /></Typography>
-            <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
+            <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
             <Typography variant="body2">
               number of active cases in covid
             </Typography>
