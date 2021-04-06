@@ -1,6 +1,6 @@
 import {useState , useEffect} from 'react'
 import {NativeSelect , FormControl} from '@material-ui/core'
-import {fetchCountries} from './../../api/Api'
+import { fetchCountries } from './../../api/Api'
 
 const StyleSelector= {
     justifycontent: 'center',
@@ -8,28 +8,19 @@ const StyleSelector= {
 } 
 
 
-function Selector() {
+function Selector({data}) {
 
-     const [countieslist , setcontrieslist] = useState ([]);
+     const countries = data ;
 
-
-    useEffect ( () => 
-    { 
-      const getcountries = async ()=> 
-      {
-          setcontrieslist(await fetchCountries );
-      }
-     
-      getcountries();
-      console.log(countieslist);
-     } , [setcontrieslist]) ;
+     console.log(countries);
+ 
 
 
     return (
         <FormControl style={StyleSelector}>
             <NativeSelect >
-                <option style={{padding:'10px'}} value=''>Global</option>
-                {countieslist.map( (country , i ) =>  <option key={i}  value={country}>{country}</option> ) }
+                <option value=''>Global</option>
+                {countries.map( (country , i ) =>  <option key={i}  value={country}>{country}</option> ) }
             </NativeSelect>
         </FormControl>
     )

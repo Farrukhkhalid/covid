@@ -51,7 +51,6 @@ const Style3 ={
 
 
 function Cards(props) {
-  console.log(props);
   return ( 
     <div className='CardContainer'>
       <Grid container spacing={3} justify="center">
@@ -180,17 +179,6 @@ function Cards(props) {
       </Grid>
 
        
-
-
-
-
-
-
-
-
-
-
-
 
 
 

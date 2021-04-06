@@ -43,8 +43,9 @@ try{
 
   // return countries.map(countries => countries.name) ;
   const {data : { countries } }  = await axios.get(`${url}/countries`);
-  
-  return countries.map(country => country.name) ;
+  const modifiedarray = countries.map(country => country.name) ;
+  // console.log(modifiedarray);
+  return  modifiedarray ;
   
 }
 catch (error) {}
