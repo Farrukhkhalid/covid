@@ -148,12 +148,12 @@ function Cards(props) {
        </Grid>
         <Grid item component={Card} style={StyleDailyRecov}>
         <CardContent className='Card'>
-            <Typography >RECOVERED</Typography>
+            <Typography >CRITICAL</Typography>
             <Typography variant="h5">
                 <Countup
                 start={0}
                 end={props.daily.critical}
-                duration={2}
+                duration={1}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
@@ -164,11 +164,11 @@ function Cards(props) {
         </Grid>
         <Grid item component={Card} style={StyleDailyRecov}>
         <CardContent className='Card'>
-            <Typography color="textSecoundary">DEATHS</Typography>
+            <Typography color="textSecoundary">RECOVERED</Typography>
             <Typography variant="h5"><Countup
                 start={0}
                 end={props.daily.todayRecovered}
-                duration={1}
+                duration={2}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
