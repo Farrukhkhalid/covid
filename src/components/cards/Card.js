@@ -30,6 +30,7 @@ const StyleDailyRecov = {
     borderBottom : '5px solid #27ae60' ,
     color: '#2b2b2b',
     textAlign: 'left',
+    padding : '0px 50px 0px 10px',
     margin: '1% 1% 1%' ,
     
 } ;
@@ -61,13 +62,13 @@ function Cards(props) {
             <Countup
                 start={0}
                 end={props.data.recovered}
-                duration={1}
+                duration={1.5}
                 separator=","
               />
             </Typography>
             <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
-              number of active cases in covid
+              Number of active cases in covid
             </Typography>
           </CardContent>
        </Grid>
@@ -79,12 +80,12 @@ function Cards(props) {
                 <Countup
                 start={0}
                 end={props.data.deaths}
-                duration={2}
+                duration={1}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
-              number of active cases in covid
+              Number of recovered cases in covid
             </Typography>
           </CardContent>
         </Grid>
@@ -94,12 +95,12 @@ function Cards(props) {
             <Typography variant="h4"><Countup
                 start={0}
                 end={props.data.confirmed}
-                duration={2}
+                duration={1}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.data.lastUpdate).toDateString()}</Typography>
             <Typography variant="body2">
-              number of active cases in covid
+              Number of Deaths cases in covid
             </Typography>
           </CardContent>
         </Grid>
@@ -110,70 +111,66 @@ function Cards(props) {
 
 
 
-      <Grid container spacing={0} justify="center">
+      <Grid container spacing={4} justify="center">
          <Grid item component={Card} style={StyleDailyRecov}>
           <CardContent className='Card' >
-            <Typography>INFECTED</Typography>
+          <Typography variant="h5" >Daily</Typography>
+           <Typography>INFECTED</Typography>
             <Typography variant="h5">
             <Countup
                 start={0}
                 end={props.daily.todayCases}
-                duration={2}
+                duration={1}
                 separator=","
               />
             </Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
-            <Typography variant="body2">
-              number of active cases in covid
-            </Typography>
+           
           </CardContent>
        </Grid>
        <Grid item component={Card} style={StyleDailyRecov}>
           <CardContent className='Card' >
+          <Typography variant="h5">Daily</Typography>
             <Typography>Deaths</Typography>
             <Typography variant="h5">
             <Countup
                 start={0}
                 end={props.daily.todayDeaths}
-                duration={2}
+                duration={1}
                 separator=","
               />
             </Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
-            <Typography variant="body2">
-              number of active cases in covid
-            </Typography>
+           
           </CardContent>
        </Grid>
         <Grid item component={Card} style={StyleDailyRecov}>
         <CardContent className='Card'>
+        <Typography variant="h5">Daily</Typography>
             <Typography >CRITICAL</Typography>
             <Typography variant="h5">
                 <Countup
                 start={0}
                 end={props.daily.critical}
-                duration={1}
+                duration={1.5}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
-            <Typography variant="body2">
-              number of active cases in covid
-            </Typography>
+           
           </CardContent>
         </Grid>
         <Grid item component={Card} style={StyleDailyRecov}>
         <CardContent className='Card'>
-            <Typography color="textSecoundary">RECOVERED</Typography>
+        <Typography variant="h5">Daily</Typography>
+            <Typography >RECOVERED</Typography>
             <Typography variant="h5"><Countup
                 start={0}
                 end={props.daily.todayRecovered}
-                duration={2}
+                duration={1.5}
                 separator=","
               /></Typography>
             <Typography>{new Date(props.daily.updated).toDateString()}</Typography>
-            <Typography variant="body2">
-              number of active cases in covid
-            </Typography>
+            
           </CardContent>
         </Grid>
       </Grid>

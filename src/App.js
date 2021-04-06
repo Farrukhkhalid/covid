@@ -13,7 +13,8 @@ class App extends React.Component {
 state = {
   data : {},
   daily: {},
-  countries : []
+  countries : [] ,
+  country : ''
 }
   async componentDidMount()
   {
@@ -28,12 +29,19 @@ state = {
     
   }
 
+
+  countrychangehandler = async (country) => 
+  {
+      console.log(country)
+      this.setState({country : country });
+  }
+
   render() {
   return (
     <div className="App">
      <Header/>
      <Cards data={this.state.data } daily={this.state.daily}/>
-     <Selector data={this.state.countries}/>
+     <Selector data={this.state.countries}   changeHandler = {this.countrychangehandler}/>
     </div>
   );
  }

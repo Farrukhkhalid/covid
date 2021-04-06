@@ -8,17 +8,17 @@ const StyleSelector= {
 } 
 
 
-function Selector({data}) {
+function Selector({data , changeHandler}) {
 
      const countries = data ;
 
-     console.log(countries);
+
  
 
 
     return (
         <FormControl style={StyleSelector}>
-            <NativeSelect >
+            <NativeSelect onChange={(e) => changeHandler(e.target.value)}>
                 <option value=''>Global</option>
                 {countries.map( (country , i ) =>  <option key={i}  value={country}>{country}</option> ) }
             </NativeSelect>
