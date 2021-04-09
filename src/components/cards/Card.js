@@ -62,7 +62,7 @@ function Cards(props) {
             <Countup
                 start={0}
                 end={props.data.recovered}
-                duration={1.5}
+                duration={1}
                 separator=","
               />
             </Typography>
