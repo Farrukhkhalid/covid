@@ -8,9 +8,11 @@ import Charts from 'react-apexcharts' ;
 
 
 const url = "https://covid19.mathdro.id/api";
+ 
 
 const Chart = () => {
   const [dailyData, setDailyData] = useState({});
+  const [history , setHistory] = useState('') ;
 
 
 
@@ -21,10 +23,12 @@ const Chart = () => {
       // const initialDailyData = await fetchDailyChart();
       const data = await axios.get('https://disease.sh/v3/covid-19/historical/all');
       setDailyData(data);
+      
     
     };
 
     fetchMyAPI();
+  
     console.log(Object.values(dailyData.data.cases));
     // console.log(dailyData.data.cases)
   }, []);
@@ -102,6 +106,7 @@ const options = {
   plotOptions: {
     bar: {
       borderRadius: 2,
+      columnWidth: '90%',
       horizontal: false,
     }
   },
@@ -128,14 +133,17 @@ const series = [{
 
 
   return (
-    <div style={{display : 'flex' , justifyContent: 'center' , marginTop : '20px'}}>
-      
+    <>
+    <div style={{margin:'20px' , alignContent: 'initial'}}><button>15day</button><button>30days</button></div>
+    <div style={{display : 'flex' , justifyContent: 'center' , marginTop : '20px' }}>
+    
     <Charts  options={options} series={series} type="bar" width={1000} height={500} />
 
       
       {/* {lineChart} */}
       {/* {country ? barChart : lineChart} */}
-    </div>
+    </div> 
+    </>
   );
 };
 
