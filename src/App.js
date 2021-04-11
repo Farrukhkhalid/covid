@@ -13,9 +13,10 @@ class App extends React.Component {
 state = {
   data : {},
   daily: {},
+  chartdata :{} ,
   countries : [] ,
   country : '',
-  chartdata:[]
+  
 }
   async componentDidMount()
   {
@@ -27,10 +28,12 @@ state = {
 
     const getcountries= await fetchCountries();
     this.setState({countries : getcountries});
+    
 
     // const getchart = await fetchDailyChart();
     // this.setState({chartdata : getchart});
- 
+    // console.log(` from app ${this.state.chartdata}`)
+  
     
     
   }
@@ -47,8 +50,8 @@ state = {
     <div className="App">
      <Header/>
      <Cards data={this.state.data } daily={this.state.daily}/>
-     <Selector data={this.state.countries}   changeHandler = {this.countrychangehandler}/>
-     <Chart />
+     {/* <Selector data={this.state.countries}   changeHandler = {this.countrychangehandler}/> */}
+     <Chart data={this.state.chartdata} />
     </div>
   );
  }

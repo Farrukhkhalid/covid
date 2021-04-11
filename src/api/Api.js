@@ -21,13 +21,15 @@ export const fetchData = async () => {
 
 export const fetchDailyChart = async () => {
   try {
-    const data  = await axios.get(`${url}/daily`);
-    // console.log(data)
-  }
-  catch (error) {
+    const {data}  = await axios.get('https://disease.sh/v3/covid-19/historical/all');
+    
+    const chart = {cases : data.cases , recovered : data.recovered , death : data.deaths}
+    // console.log(chart);
+    return chart ;
+  } catch (error) {
 
   }
-
+ 
 }
 
 
