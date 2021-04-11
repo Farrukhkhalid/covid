@@ -99,7 +99,7 @@ function Cards({data ,daily}) {
         </Grid>
         <Grid item component={Card} style={StyleDeaths}>
         <CardContent className='Card'>
-            <Typography color="textSecoundary">DEATHS</Typography>
+            <Typography >DEATHS</Typography>
             <Typography variant="h4">
               {/* <Countup
                 start={0}

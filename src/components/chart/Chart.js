@@ -30,7 +30,6 @@ const Chart = ({ chartdata }) => {
 
         const data = await axios.get('https://disease.sh/v3/covid-19/historical/all');
         setDailyData(data);
-        console.log(dailyData)
         setlabel(Object.keys(dailyData.data.cases))
         setconfirmed(Object.values(dailyData.data.cases)) ;
         setrecovered(Object.values(dailyData.data.recovered));
